@@ -2,20 +2,42 @@ package main
 
 import(
   "fmt"
-  //"bufio"
-  //"os"
+  "bufio"
+  "os"
 )
 
-//ユーザーにやらせる部分ここ. これから実装する
+//ユーザーに好きな数字を選択させる
 func merge(a, b []int)[]int{
   tmp := make([]int, len(a)+len(b))
   i, j := 0, 0
+  eval := 0
 
   for i < len(a) && j < len(b){
-    if a[i] <= b[j]{
+    //ここで入力要求
+    fmt.Println(a[i], " と ", b[j], " どっちの数字が好き?")
+    fmt.Println(a[i], " なら 0 を, ", b[j], " なら 1 を入力してね. 例外処理していないので0と1以外は絶対に入力しないでね.")
+    //標準入力
+    scanner := bufio.NewScanner(os.Stdin)
+    if scanner.Scan(){
+      switch scanner.Text(){
+        case "0":
+          eval = 0
+        case "1":
+          eval = 1
+        default:
+      }
+  
+      fmt.Println(eval)
+    }
+    //エラーハンドリング
+    if err := scanner.Err(); err != nil{
+      fmt.Fprintln(os.Stderr, "reading standard input:", err)
+    }
+
+    if eval == 0{
       tmp[i+j] = a[i]
       i++
-    }else{
+    }else if eval == 1{
       tmp[i+j] = b[j]
       j++
     }
@@ -29,7 +51,7 @@ func merge(a, b []int)[]int{
   for j < len(b){
     tmp[i+j] = b[j]
     j++
-  }
+  } 
 
   return tmp
 }
@@ -43,16 +65,8 @@ func mergeSort(items []int)[]int{
 }
 
 func main(){
-  a := []int{10, 9, 8, 4, 6, 5, 6, 7, 3, 9, 2, 1}
-  
-  //標準入力
-  /*scanner := bufio.NewScanner(os.Stdin)
-  for scanner.Scan(){
-    fmt.Println(scanner.Text())
-  }
-  if err := scanner.Err(); err != nil{
-    fmt.Fprintln(os.Stderr, "reading standard input:", err)
-  }*/
+  a := []int{10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
+
   //マージソート
   fmt.Println(mergeSort(a))
 }
