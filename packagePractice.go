@@ -13,8 +13,12 @@ import (
 )
 
 const (
+  //リクエストを投げるURL
   REQ_URL = "http://weather.livedoor.com/forecast/webservice/json"
 )
+
+//GETリクエストのレスポンスを格納用
+var response string = ""
 
 func main() {
   //url.Valuesオブジェクト生成
@@ -26,6 +30,8 @@ func main() {
 
   client := &http.Client{Timeout: time.Duration(10 * time.Second)}
   get(client, values)
+
+  fmt.Println(response)
 }
 
 func get(client *http.Client, values url.Values) {
@@ -52,6 +58,7 @@ func execute(resp *http.Response) {
   //ioutil.ReadAllを使う
   b, err := ioutil.ReadAll(resp.Body)
   if err == nil {
-    fmt.Println(string(b))
+    //fmt.Println(string(b))
+    response = string(b)
   }
 }
