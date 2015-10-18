@@ -19,8 +19,8 @@ const (
   REQ_URL = "http://weather.livedoor.com/forecast/webservice/json"
 )
 
-//GETリクエストのレスポンス格納用
-var response string = ""
+//リクエストのレスポンス格納用
+var responseGet, responsePost string = "", ""
 
 /*時間制限ありGETを使うときコメントを外す
 func get(client *http.Client, values url.Values) {
@@ -39,7 +39,7 @@ func get(client *http.Client, values url.Values) {
   }
   defer resp.Body.Close()
 
-  execute(resp)
+  execute(resp, "GET")
 }
 */
 
@@ -52,7 +52,7 @@ func get(values url.Values){
   }
   defer resp.Body.Close()
 
-  execute(resp)
+  execute(resp, "GET")
 }
 
 func post(values url.Values){
@@ -63,15 +63,19 @@ func post(values url.Values){
   }
   defer resp.Body.Close()
 
-  execute(resp)
+  execute(resp, "POST")
 }
 
-func execute(resp *http.Response) {
+func execute(resp *http.Response, kinds string) {
   //response bodyを文字列で取得
   b, err := ioutil.ReadAll(resp.Body)
   if err == nil {
     //fmt.Println(string(b))
-    response = string(b)
+    if kinds == "GET"{
+      responseGet = string(b)
+    }else if kinds == "POST"{
+      responsePost = string(b)
+    }
   }
 }
 
@@ -94,5 +98,6 @@ func main() {
   //普通のPOST
   post(values)
 
-  fmt.Println(response)
+  fmt.Println(responseGet)
+  fmt.Println(responsePost)
 }
