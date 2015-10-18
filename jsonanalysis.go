@@ -78,10 +78,12 @@ type point struct {
 type data struct {
 	Copyright	copy	`json:"copyright"`
 	Description	des	`json:"description"`
-	Forecast	[]forecasts
-	Link		string	//`json:"link"`
+	Forecasts	[]forecasts
+	Link		string	`json:"link"`
 	Location	locate	`json:"location"`
 	PinpointLocations []point
+	PublicTime	string	
+	Title		string
 } 
 
 func main() {
