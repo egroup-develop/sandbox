@@ -1,0 +1,183 @@
+{
+    "copyright": {
+        "image": {
+            "height": 26, 
+            "link": "http://weather.livedoor.com/", 
+            "title": "livedoor 天気情報", 
+            "url": "http://weather.livedoor.com/img/cmn/livedoor.gif", 
+            "width": 118
+        }, 
+        "link": "http://weather.livedoor.com/", 
+        "provider": [
+            {
+                "link": "http://tenki.jp/", 
+                "name": "日本気象協会"
+            }
+        ], 
+        "title": "(C) LINE Corporation"
+    }, 
+    "description": {
+        "publicTime": "2015-10-18T10:38:00+0900", 
+        "text": " 本州付近は、高気圧に緩やかに覆われています。
+
+ 長野県内は、晴れまたは曇りとなっています。
+
+ 18日は、高気圧に覆われますが、湿った空気の影響を受ける見込みです
+。
+ このため、晴れますが、北部では夜曇るでしょう。
+
+ 19日は、高気圧に覆われますが、湿った空気の影響を受ける見込みです
+。
+ このため、晴れますが、朝晩は雲が広がりやすいでしょう。
+
+<天気変化等の留意点>
+ 18日12時から19日12時までの24時間に予想される降水量は、多
+い所で、北部で0ミリ、中部で0ミリ、南部で0ミリの見込みです。"
+    }, 
+    "forecasts": [
+        {
+            "date": "2015-10-18", 
+            "dateLabel": "今日", 
+            "image": {
+                "height": 31, 
+                "title": "晴のち曇", 
+                "url": "http://weather.livedoor.com/img/icon/5.gif", 
+                "width": 50
+            }, 
+            "telop": "晴のち曇", 
+            "temperature": {
+                "max": {
+                    "celsius": "23", 
+                    "fahrenheit": "73.4"
+                }, 
+                "min": null
+            }
+        }, 
+        {
+            "date": "2015-10-19", 
+            "dateLabel": "明日", 
+            "image": {
+                "height": 31, 
+                "title": "晴時々曇", 
+                "url": "http://weather.livedoor.com/img/icon/2.gif", 
+                "width": 50
+            }, 
+            "telop": "晴時々曇", 
+            "temperature": {
+                "max": {
+                    "celsius": "21", 
+                    "fahrenheit": "69.8"
+                }, 
+                "min": {
+                    "celsius": "10", 
+                    "fahrenheit": "50.0"
+                }
+            }
+        }, 
+        {
+            "date": "2015-10-20", 
+            "dateLabel": "明後日", 
+            "image": {
+                "height": 31, 
+                "title": "晴時々曇", 
+                "url": "http://weather.livedoor.com/img/icon/2.gif", 
+                "width": 50
+            }, 
+            "telop": "晴時々曇", 
+            "temperature": {
+                "max": null, 
+                "min": null
+            }
+        }
+    ], 
+    "link": "http://weather.livedoor.com/area/forecast/200010", 
+    "location": {
+        "area": "信越・北陸", 
+        "city": "長野", 
+        "prefecture": "長野県"
+    }, 
+    "pinpointLocations": [
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2020100", 
+            "name": "長野市"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2020700", 
+            "name": "須坂市"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2021100", 
+            "name": "中野市"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2021200", 
+            "name": "大町市"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2021300", 
+            "name": "飯山市"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2021800", 
+            "name": "千曲市"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2048100", 
+            "name": "池田町"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2048200", 
+            "name": "松川村"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2048500", 
+            "name": "白馬村"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2048600", 
+            "name": "小谷村"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2052100", 
+            "name": "坂城町"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2054100", 
+            "name": "小布施町"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2054300", 
+            "name": "高山村"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2056100", 
+            "name": "山ノ内町"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2056200", 
+            "name": "木島平村"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2056300", 
+            "name": "野沢温泉村"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2058300", 
+            "name": "信濃町"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2058800", 
+            "name": "小川村"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2059000", 
+            "name": "飯綱町"
+        }, 
+        {
+            "link": "http://weather.livedoor.com/area/forecast/2060200", 
+            "name": "栄村"
+        }
+    ], 
+    "publicTime": "2015-10-18T11:00:00+0900", 
+    "title": "長野県 長野 の天気"
+}
