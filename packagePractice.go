@@ -14,6 +14,8 @@ import (
 ****/
   "encoding/json"
   "bytes"
+  "strings"
+  "text/scanner"
 )
 
 const (
@@ -126,7 +128,32 @@ func main() {
   dec := json.NewDecoder(bytes.NewBufferString(responseGet))
   var d data
   dec.Decode(&d)
-
+  
+  b, err := json.Marshal(d)
+  if err != nil {
+    fmt.Errorf("%s", err)
+  }
+  jsonData := string(b)
+  
   fmt.Println("【date: 日付, title: 天気, url: URL】")
-  fmt.Printf("%+v\n", d)
+  fmt.Println(jsonData)
+  
+  //字句解析
+  lexArray := make([]string, 1)
+  lexical := strings.NewReader(jsonData)
+  var scan scanner.Scanner
+  scan.Init(lexical)
+  for{
+    x := scan.Scan()
+    //fmt.Println(x, scan.TokenText())
+
+    if x == -1{
+      break
+    }else if x == -6{
+      lexArray = append(lexArray, scan.TokenText())
+    }
+  }
+
+  fmt.Println("明日は", lexArray[10], "です. 天気は", lexArray[13], "です. URLは", lexArray[15], "です.")
+
 }
