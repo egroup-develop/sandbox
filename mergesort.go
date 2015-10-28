@@ -1,3 +1,8 @@
+/**
+ * Charソート(マージ)完成版!!!
+ * 結果は好みの昇順で表示しまっっっ!!!
+ */
+
 package main
 
 import(
@@ -27,17 +32,17 @@ func merge(a, b []int)[]int{
         default:
       }
   
-      fmt.Println(eval)
+      //fmt.Println(eval)
     }
     //エラーハンドリング
     if err := scanner.Err(); err != nil{
       fmt.Fprintln(os.Stderr, "reading standard input:", err)
     }
 
-    if eval == 0{
+    if eval == 1{
       tmp[i+j] = a[i]
       i++
-    }else if eval == 1{
+    }else if eval == 0{
       tmp[i+j] = b[j]
       j++
     }
