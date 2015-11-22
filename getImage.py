@@ -25,8 +25,10 @@ try:
     num = str(i)
 
     try:
-      os.mkdir(num + "_" + id)
-      os.chdir(num + "_" + id)
+#      os.mkdir(num + "_" + id)
+#      os.chdir(num + "_" + id)
+      os.mkdir(num)
+      os.chdir(num)
     except: 
       sys.exit()
 
@@ -36,7 +38,7 @@ try:
     for url in urls:
       print "URL: " + url
 
-      filename = "image_" + str(j)
+      filename = "image_" + str(j) + ".png"
       savePath = os.path.join(os.getcwd(), os.path.basename(filename))
       urllib.urlretrieve(url, savePath)
       j += 1
