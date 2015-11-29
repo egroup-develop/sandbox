@@ -6,7 +6,7 @@ from caffe.proto import caffe_pb2
 import numpy as np
 import sys
 
-#ここではip2層の値を取り出している
+#ここではip2層の値を取り出している. outputをクラス数分の100にしたので100個特徴量が得られる
 LAYER = 'ip2'
 INDEX = 0
 
@@ -30,19 +30,40 @@ classifier = caffe.Classifier(
 image = caffe.io.load_image(sys.argv[1])
 #特徴量
 predictions = classifier.predict([image], oversample=False)
-#与えられた画像が属するクラスを表示
+#与えられた画像が属するクラス(最も近いクラス)を表示
 pred = np.argmax(predictions)
 
 #caffeで特徴抽出から分類まで完結
 print predictions
-print sys.argv[1] + "が属するクラスは, \n"
+print "\n" + sys.argv[1] + "が属するクラス(一番近い人)は, "
 print pred
-print "です\n"
+print "です"
+
+#内積層の最後の層の出力を表示(num_output分)する
+#index: 素性(特徴量) の組
+feat = classifier.blobs[LAYER].data[INDEX].flatten().tolist()
+
+#近しいもの
+featSorted = feat
+featSorted = np.sort(featSorted)
+featSorted = featSorted[-1::-1]
+pred2 = featSorted[1]
+pred3 = featSorted[2]
+
+for index, value in enumerate(feat):
+  if pred2 == value:
+    print "2番目に近い人は, "
+    print index
+    print "です"
+  elif pred3 == value:
+    print "3番目に近い人は, "
+    print index
+    print "です"
+print "\n"
 
 print sys.argv[1] + "の特徴量..."
 
-#caffeを特徴抽出として使う用
-#index: 素性(特徴量) の組を出力
-feat = classifier.blobs[LAYER].data[INDEX].flatten().tolist()
-for i,f in enumerate(feat): 
-  print(str(i+1) + ":" + str(f)),
+#for i,f in enumerate(feat): 
+#  print(str(i+1) + ":" + str(f)),
+for i,f in enumerate(feat):
+  print(str(i+1) + ":" + str(f) + "\n"),
